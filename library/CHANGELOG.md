@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.0.1] - 2026-02-18
+
+### Added
+- 新增 `headerBgColor` 主题配置字段，支持自定义分组标题背景颜色
+- 新增权限说明字符串资源
+
+### Changed
+- 完善权限配置，添加 `reason` 和 `usedScene` 字段
+- 优化 `isScrolling` 为 `@State` 响应式状态
+
+### Fixed
+- 添加 `BusinessError` 类型导入，完善类型定义
+- 修正 `repository` URL 格式以兼容 OHPM 发布要求
+
 ## [1.0.0] - 2026-02-18
 
 ### Added

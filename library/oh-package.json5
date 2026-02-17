@@ -1,6 +1,6 @@
 {
   "name": "@kelegele/emoji-picker",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A HarmonyOS emoji picker component with Chinese labels and theme support.",
   "main": "Index.ets",
   "author": "kelegele",

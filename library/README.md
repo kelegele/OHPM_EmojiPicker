@@ -78,7 +78,8 @@ const myTheme: EmojiPickerTheme = {
   selectedBgColor: '#FFE5E5',        // 选中Tab背景颜色
   unselectedTextColor: '#666666',    // 未选中Tab文字颜色
   unselectedBgColor: '#F5F5F5',      // 未选中Tab背景颜色
-  headerColor: '#FF6B6B'             // 分组标题颜色
+  headerColor: '#FF6B6B',            // 分组标题颜色
+  headerBgColor: '#FFFFFF'           // 分组标题背景颜色
 }
 
 Picker({ 
@@ -116,12 +117,13 @@ interface EmojiGroup {
 }
 
 interface EmojiPickerTheme {
-  name: string                  // 主题名称
+  name: string                     // 主题名称
   selectedTextColor: ResourceStr   // 选中Tab文字颜色
   selectedBgColor: ResourceStr     // 选中Tab背景颜色
   unselectedTextColor: ResourceStr // 未选中Tab文字颜色
   unselectedBgColor: ResourceStr   // 未选中Tab背景颜色
   headerColor: ResourceStr         // 分组标题颜色
+  headerBgColor: ResourceStr       // 分组标题背景颜色
 }
 ```
 
