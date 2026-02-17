@@ -2,7 +2,7 @@
 
 ## 项目概述
 
-这是一个 HarmonyOS 平台的 Emoji 选择器组件库 (`@kelegele/emoji-picker`)，支持中文标签和主题配色。项目采用 ArkTS/ArkUI 原生开发，可作为一个 HAR（HarmonyOS Archive）库被其他 HarmonyOS 应用引用。
+这是一个 HarmonyOS 平台的 Emoji 选择器组件库 (`@kelegele/emoji-picker`)，支持中文标签和主题配色。项目采用 ArkTS/ArkUI 原生开发，已发布到 OHPM 中心仓。
 
 ### 主要特性
 
@@ -44,6 +44,8 @@ EmojiPicker/
 │   │   │   └── data/
 │   │   │       └── EmojiData.ets       # Emoji 数据源
 │   │   └── resources/
+│   │       ├── base/element/   # 基础资源（颜色、字符串）
+│   │       ├── dark/element/   # 深色模式资源
 │   │       └── rawfile/
 │   │           └── emoji_251223.json    # Emoji JSON 数据
 │   ├── README.md               # 库使用文档
@@ -62,14 +64,33 @@ EmojiPicker/
 
 ### 构建 HAR 库
 ```bash
-# 在 library 目录下构建
-cd library && hvigorw assembleHar
+/Applications/DevEco-Studio.app/Contents/tools/node/bin/node /Applications/DevEco-Studio.app/Contents/tools/hvigor/bin/hvigorw.js assembleHar -p module=library@default -p product=default
 ```
 
 ### 清理构建
 ```bash
-hvigorw clean
+/Applications/DevEco-Studio.app/Contents/tools/node/bin/node /Applications/DevEco-Studio.app/Contents/tools/hvigor/bin/hvigorw.js clean
 ```
+
+## OHPM 发布
+
+### 发布命令
+```bash
+/Applications/DevEco-Studio.app/Contents/tools/ohpm/bin/ohpm publish \
+  /Users/fh/Projects/ohos/EmojiPicker/library/build/default/outputs/default/library.har \
+  --publish_id <发布码> \
+  --key_path ~/.ssh_ohpm/ohpm_key
+```
+
+### 发布配置
+- 密钥路径: `~/.ssh_ohpm/ohpm_key`
+- 公钥路径: `~/.ssh_ohpm/ohpm_key.pub`
+- OHPM 中心仓: https://ohpm.openharmony.cn
+
+### 发布注意事项
+1. 密钥必须设置密码（passphrase）
+2. `repository` 字段必须是 URL 字符串格式，不能是对象
+3. HAR 包路径: `library/build/default/outputs/default/library.har`
 
 ## 使用方法
 
@@ -113,7 +134,8 @@ const myTheme: EmojiPickerTheme = {
   selectedBgColor: '#FFE5E5',
   unselectedTextColor: '#666666',
   unselectedBgColor: '#F5F5F5',
-  headerColor: '#FF6B6B'
+  headerColor: '#FF6B6B',
+  headerBgColor: '#FFFFFF'
 }
 
 Picker({ emojiText: $emojiText, theme: myTheme })
@@ -130,6 +152,18 @@ Picker({ emojiText: $emojiText, theme: myTheme })
 | lanes | `number` | 否 | 7 | 每行显示数量 |
 | theme | `EmojiPickerTheme` | 否 | `THEME_DEFAULT` | 主题配置 |
 | emojiData | `EmojiGroup[]` | 否 | 内置数据 | 自定义 Emoji 数据源 |
+
+### EmojiPickerTheme 接口
+
+| 字段 | 类型 | 说明 |
+|------|------|------|
+| name | `string` | 主题名称 |
+| selectedTextColor | `ResourceStr` | 选中Tab文字颜色 |
+| selectedBgColor | `ResourceStr` | 选中Tab背景颜色 |
+| unselectedTextColor | `ResourceStr` | 未选中Tab文字颜色 |
+| unselectedBgColor | `ResourceStr` | 未选中Tab背景颜色 |
+| headerColor | `ResourceStr` | 分组标题颜色 |
+| headerBgColor | `ResourceStr` | 分组标题背景颜色 |
 
 ### 导出内容
 
@@ -163,14 +197,13 @@ Picker({ emojiText: $emojiText, theme: myTheme })
 - `components/` - UI 组件
 - `models/` - 数据模型和类型定义
 - `data/` - 数据源文件
+- `resources/base/` - 基础资源
+- `resources/dark/` - 深色模式资源
 
-## 测试
+## 版本历史
 
-项目包含单元测试框架配置：
-- 测试框架: `@ohos/hypium` (1.0.25)
-- Mock 框架: `@ohos/hamock` (1.0.0)
-
-测试文件位于 `entry/src/ohosTest/ets/test/` 和 `library/src/ohosTest/ets/test/`
+- **v1.0.1** - 添加 headerBgColor 字段，完善权限配置
+- **v1.0.0** - 初始版本发布
 
 ## 版本兼容性
 
