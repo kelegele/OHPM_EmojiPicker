@@ -1,0 +1,12 @@
+{
+  "string": [
+    {
+      "name": "library_desc",
+      "value": "HarmonyOS Emoji Picker Component"
+    },
+    {
+      "name": "vibrate_permission_reason",
+      "value": "用于选择Emoji时提供触感反馈"
+    }
+  ]
+}

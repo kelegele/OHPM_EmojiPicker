@@ -1,5 +1,6 @@
 import { hilog } from '@kit.PerformanceAnalysisKit'
 import { vibrator } from '@kit.SensorServiceKit'
+import { BusinessError } from '@kit.BasicServicesKit'
 import { EMOJI_251223 } from '../data/EmojiData'
 import { EmojiGroup, EmojiItem } from '../models/EmojiModel'
 import { EmojiPickerTheme, THEME_DEFAULT } from '../models/EmojiPickerTheme'
@@ -23,8 +24,8 @@ export struct Picker {
   @Prop emojiData: EmojiGroup[] = EMOJI_251223
 
   @State groupIndex: number = 0
+  @State isScrolling: boolean = false
   emojiScroller: ListScroller = new ListScroller()
-  private isScrolling: boolean = false
 
   @Builder
   EmojiGroupTabBuilder(group: string, index: number) {
@@ -64,7 +65,7 @@ export struct Picker {
       .width('100%')
       .padding({ left: 5 })
       .height(50)
-      .backgroundColor($r('sys.color.comp_background_primary'))
+      .backgroundColor(this.theme.headerBgColor)
   }
 
   @Builder

@@ -14,6 +14,8 @@ export interface EmojiPickerTheme {
   unselectedBgColor: ResourceStr
   /** 分组标题颜色 */
   headerColor: ResourceStr
+  /** 分组标题背景颜色 */
+  headerBgColor: ResourceStr
 }
 
 /**
@@ -25,7 +27,8 @@ export const THEME_DEFAULT: EmojiPickerTheme = {
   selectedBgColor: $r('sys.color.comp_emphasize_secondary'),
   unselectedTextColor: $r('sys.color.font_secondary'),
   unselectedBgColor: $r('sys.color.comp_background_tertiary'),
-  headerColor: $r('sys.color.font_emphasize')
+  headerColor: $r('sys.color.font_emphasize'),
+  headerBgColor: $r('sys.color.comp_background_primary')
 }
 
 /**
@@ -33,11 +36,12 @@ export const THEME_DEFAULT: EmojiPickerTheme = {
  */
 export const THEME_GREEN: EmojiPickerTheme = {
   name: 'green',
-  selectedTextColor: $r('app.color.color_primary'),
-  selectedBgColor: $r('app.color.color_primary_light'),
+  selectedTextColor: $r('app.color.color_green_primary'),
+  selectedBgColor: $r('app.color.color_green_primary_light'),
   unselectedTextColor: $r('sys.color.font_secondary'),
   unselectedBgColor: $r('sys.color.comp_background_tertiary'),
-  headerColor: $r('app.color.color_primary')
+  headerColor: $r('app.color.color_green_primary'),
+  headerBgColor: $r('sys.color.comp_background_primary')
 }
 
 /**
@@ -49,7 +53,8 @@ export const THEME_GRAY: EmojiPickerTheme = {
   selectedBgColor: $r('sys.color.comp_background_secondary'),
   unselectedTextColor: $r('sys.color.font_secondary'),
   unselectedBgColor: $r('sys.color.comp_background_tertiary'),
-  headerColor: $r('sys.color.font_primary')
+  headerColor: $r('sys.color.font_primary'),
+  headerBgColor: $r('sys.color.comp_background_primary')
 }
 
 /**

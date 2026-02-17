@@ -1,0 +1,12 @@
+{
+  "color": [
+    {
+      "name": "color_green_primary",
+      "value": "#0D8A68"
+    },
+    {
+      "name": "color_green_primary_light",
+      "value": "#1A4D3D"
+    }
+  ]
+}

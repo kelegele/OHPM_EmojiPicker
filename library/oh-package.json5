@@ -5,10 +5,7 @@
   "main": "Index.ets",
   "author": "kelegele",
   "license": "Apache-2.0",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/kelegele/EaseCall-Application"
-  },
+  "repository": "https://github.com/kelegele/OHPM_EmojiPicker",
   "keywords": [
     "harmonyos",
     "emoji",
